@@ -7,7 +7,6 @@
   float:right;
 }
 
-
 .posted-tweet {
   padding: 20px;
   margin-bottom: 50px;
@@ -22,7 +21,7 @@ section.posted-tweet {
   border: 3px solid black;
 }
 
-#some-shit {
+#likes {
   float: right;
   margin-top: 9px;
   font-size: .7em;
