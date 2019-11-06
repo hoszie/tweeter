@@ -1,0 +1,31 @@
+.counter {
+  font-family: 'Bungee', sans-serif;
+  float: right;
+}
+
+.counter.negative {
+  color: red;
+}
+
+textarea {
+  width: 100%;
+  height: 45px;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid black;
+  background: transparent;
+  resize: none;
+  font-weight: bold;
+
+}
+
+input {
+  font-family: 'Bungee', sans-serif;
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+
+form {
+  padding-bottom: 60px;
+}
+
