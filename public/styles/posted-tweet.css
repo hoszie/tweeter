@@ -5,6 +5,11 @@
 
 #handle {
   float:right;
+  visibility: hidden;
+}
+
+.posted-tweet:hover #handle {
+  visibility: visible;
 }
 
 .posted-tweet {

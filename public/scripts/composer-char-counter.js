@@ -8,10 +8,17 @@ $(document).ready(function() {
     $('span').removeClass('negative');
     }
   });
-  $('#handle').hide();
-  $('.posted-tweet').mouseenter(function() {
-    $('#handle').show();
-  }).mouseleave(function() {
-    $('#handle').hide();
-  });
 })
+
+
+
+
+
+
+
+  // $('#handle').hide();
+  // $('.posted-tweet').mouseenter(function() {
+  //   $('#handle').show();
+  // }).mouseleave(function() {
+  //   $('#handle').hide();
+  // });
