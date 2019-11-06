@@ -10,6 +10,12 @@
 
 .posted-tweet {
   padding: 20px;
+  margin-bottom: 50px;
+}
+
+.posted-tweet:hover {
+  box-shadow: 20px 20px 5px grey;
+  cursor: pointer;
 }
 
 section.posted-tweet {
@@ -18,7 +24,7 @@ section.posted-tweet {
 
 #some-shit {
   float: right;
-  margin-top: 8px;
+  margin-top: 9px;
   font-size: .7em;
 }
 
