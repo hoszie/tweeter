@@ -1,0 +1,17 @@
+header {
+  height: 400px;
+  width: 100%;
+  margin-top: 95px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d9ae00;
+  background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+}
+
+h2 {
+  margin-top: 0;
+  font-family: 'Source Sans Pro';
+  color: white;
+}
