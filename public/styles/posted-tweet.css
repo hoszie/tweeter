@@ -1,0 +1,31 @@
+#id-tweet {
+  margin-bottom: 5%;
+  opacity: 0.4;
+}
+
+#handle {
+  float:right;
+}
+
+
+.posted-tweet {
+  padding: 20px;
+}
+
+section.posted-tweet {
+  border: 3px solid black;
+}
+
+#some-shit {
+  float: right;
+  margin-top: 8px;
+  font-size: .7em;
+}
+
+#tweet {
+  border-bottom: 3px solid black
+}
+
+#timestamp {
+  font-size: .7em;
+}
