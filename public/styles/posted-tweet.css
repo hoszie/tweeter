@@ -3,6 +3,11 @@
   opacity: 0.4;
 }
 
+.id-tweet img {
+  height: 40px;
+  width: 40px;
+}
+
 .handle {
   float:right;
   visibility: hidden;
@@ -42,4 +47,8 @@ article.tweet {
 
 .timestamp {
   font-size: .7em;
+}
+
+.avatar {
+  color: #4056A1;
 }
