@@ -1,41 +1,41 @@
-#id-tweet {
+.id-tweet {
   margin-bottom: 5%;
   opacity: 0.4;
 }
 
-#handle {
+.handle {
   float:right;
   visibility: hidden;
 }
 
-.posted-tweet:hover #handle {
+.tweet:hover .handle {
   visibility: visible;
 }
 
-.posted-tweet {
+.tweet {
   padding: 20px;
   margin-bottom: 50px;
 }
 
-.posted-tweet:hover {
+.tweet:hover {
   box-shadow: 20px 20px 5px grey;
   cursor: pointer;
 }
 
-article.posted-tweet {
+article.tweet {
   border: 3px solid black;
 }
 
-#likes {
+.likes {
   float: right;
   margin-top: 9px;
   font-size: .7em;
 }
 
-#tweet {
+.tweet-words {
   border-bottom: 3px solid black
 }
 
-#timestamp {
+.timestamp {
   font-size: .7em;
 }
