@@ -9,16 +9,3 @@ $(document).ready(function() {
     }
   });
 })
-
-
-
-
-
-
-
-  // $('#handle').hide();
-  // $('.posted-tweet').mouseenter(function() {
-  //   $('#handle').show();
-  // }).mouseleave(function() {
-  //   $('#handle').hide();
-  // });
