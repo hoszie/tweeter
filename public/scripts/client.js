@@ -3,13 +3,13 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
 const createTweetElement = function(tweetObj) {
   const $tweet = `
   
     <article class="tweet">
       <div class="id-tweet">
-        <span id="avatar">${tweetObj.user.avatars} ${tweetObj.user.name}</span>
+        <img src='${tweetObj.user.avatars}'> 
+        <span class="avatar">${tweetObj.user.name}</span>
         <span class="handle">${tweetObj.user.handle}</span>
       </div>
       <div id="content-tweet">
@@ -24,42 +24,23 @@ const createTweetElement = function(tweetObj) {
   return $tweet;
 }
 
-const dummyTweets = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-const renderTweets = function () {
-  for (let user of dummyTweets) {
-    const $tweet = createTweetElement(user);
+const renderTweets = function (data) {
+  for (let datum of data) {
+    const $tweet = createTweetElement(datum);
     $('.tweets-container').append($tweet);
   }
 }
-renderTweets();
 
 $('#submit-tweet').submit((event) => {
   event.preventDefault();
-  console.log("before ajax call")
+  let $tweetLength = $('textarea').val().length;
+  console.log($tweetLength);
+  if ($tweetLength === 0) {
+    return alert("NO GO! Say something productive you useless n00b");
+  } else if ($tweetLength > 140) {
+    return alert("NOOOOOOO! Too much BS from you brah");
+  }
+
   $.ajax( {
     url: `/tweets`,
     data: $('#submit-tweet').serialize(),
@@ -74,25 +55,17 @@ $('#submit-tweet').submit((event) => {
       console.log("errr",err);
     }
   });
-
 })
 
-
-
-
-
-
-
-
-// Test / driver code (temporary). Eventually will get this from the server.
-// const firstTweet = dummyTweets[0];
-
-// const $tweet = createTweetElement(firstTweet);
-
-// // Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $('.tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-// // $(".tweets-container").append(crap)
-// const secondTweet = dummyTweets[1];
-// const $tweet2 = createTweetElement(secondTweet);
-// $('.tweets-container').append($tweet2);
+const loadtweets = function() {
+  $.ajax( {
+    url: '/tweets',
+    method: 'GET',
+    success: (function(data) {
+      console.log("Success", data);
+      renderTweets(data);
+      $('.tweets-container').prepend(data);
+    })
+  });
+}
+loadtweets();
