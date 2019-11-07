@@ -28,8 +28,12 @@ article.tweet {
 
 .likes {
   float: right;
-  margin-top: 9px;
+  margin-top: 5px;
   font-size: .7em;
+}
+
+.likes i {
+  padding: 3px;
 }
 
 .tweet-words {
