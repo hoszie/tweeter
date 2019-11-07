@@ -6,7 +6,7 @@
 
 const createTweetElement = function(tweetObj) {
   const $tweet = `
-  <section class='tweets-container'>
+  
     <article class="tweet">
       <div class="id-tweet">
         <span id="avatar">${tweetObj.user.avatars} ${tweetObj.user.name}</span>
@@ -20,7 +20,6 @@ const createTweetElement = function(tweetObj) {
           </footer>
       </div>
     </article>
-  </section>
   `;
   return $tweet;
 }
@@ -57,6 +56,31 @@ const renderTweets = function () {
   }
 }
 renderTweets();
+
+$('#submit-tweet').submit((event) => {
+  event.preventDefault();
+  console.log("before ajax call")
+  $.ajax( {
+    url: `/tweets`,
+    data: $('#submit-tweet').serialize(),
+    dataType: "json",
+    method: 'POST',
+    success: (data) => {
+      console.log("success",data);
+      const $data = createTweetElement(data);
+      $('.tweets-container').prepend($data);
+    },
+    error: (err) => {
+      console.log("errr",err);
+    }
+  });
+
+})
+
+
+
+
+
 
 
 
