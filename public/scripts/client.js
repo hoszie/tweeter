@@ -8,26 +8,23 @@ const createTweetElement = function(tweetObj)
   const $img = $('<img>').attr('src', tweetObj.user.avatars);
   const $name = $('<span>').addClass('name').text(tweetObj.user.name);
   const $handle = $('<span>').addClass('handle').text(tweetObj.user.handle);
-  const $header = $('<div>').addClass('id-tweet');
-  
-  $header.append($img, $name, $handle);
-  
   const $p = $('<p>').addClass('tweet-words').text(tweetObj.content.text);
   const $timestamp = $('<span>').addClass('timestamp').text(tweetObj.created_at);
   const $icons = $('<span>').addClass('likes');
-  const $footer = $('<footer>').addClass('bottom');
-  const $contentTweet = $('<div>').addClass('content-tweet');
   const $iFlagO = $('<i>').addClass('fa fa-flag-o');
   const $iFaRetweet = $('<i>').addClass('fa fa-retweet');
   const $iFaHeart = $('<i>').addClass('fa fa-heart-o');
-
-
-  $icons.append($iFlagO, $iFaRetweet, $iFaHeart);
-  $footer.append($timestamp, $icons);
+  
+  const $header = $('<div>').addClass('id-tweet');
+  const $footer = $('<footer>').addClass('bottom');
+  const $contentTweet = $('<div>').addClass('content-tweet');
+  
+  $header.append($img, $name, $handle);
   $contentTweet.append($p, $footer);
+  $footer.append($timestamp, $icons);
+  $icons.append($iFlagO, $iFaRetweet, $iFaHeart);
 
   const $article = $('<article>').addClass('tweet');
-
   $article.append($header, $contentTweet);
   return $article;
 }
