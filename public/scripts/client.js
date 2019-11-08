@@ -10,14 +10,21 @@ $('#nav-button').click(function() {
   $('.new-tweet').slideToggle();
 })
 
+$('#submit-tweet textarea').focus(function() {
+  $('#error').hide();
+  $('.new-tweet h2').show();
+  $('textarea').val('');
+})
 
-const createTweetElement = function(tweetObj)
-{
+
+const createTweetElement = function(tweetObj) {
   const $img = $('<img>').attr('src', tweetObj.user.avatars);
   const $name = $('<span>').addClass('name').text(tweetObj.user.name);
   const $handle = $('<span>').addClass('handle').text(tweetObj.user.handle);
   const $p = $('<p>').addClass('tweet-words').text(tweetObj.content.text);
+  // const whatever = moment().startOf('hour').fromNow()
   const $timestamp = $('<span>').addClass('timestamp').text(tweetObj.created_at);
+
   const $icons = $('<span>').addClass('likes');
   const $iFlagO = $('<i>').addClass('fa fa-flag-o');
   const $iFaRetweet = $('<i>').addClass('fa fa-retweet');
@@ -38,6 +45,12 @@ const createTweetElement = function(tweetObj)
 }
 
 const renderTweets = function (data) {
+  $('.tweets-container').empty();
+  data.sort((a, b) => {
+    if (a.created_at > b.created_at) return -1;
+    if (a.created_at < b.created_at) return 1;
+    return 0;
+  })
   for (let datum of data) {
     const $tweet = createTweetElement(datum);
     $('.tweets-container').append($tweet);
@@ -49,20 +62,23 @@ $('#submit-tweet').submit((event) => {
   let $tweetLength = $('textarea').val().length;
   console.log($tweetLength);
   if ($tweetLength === 0) {
-    return alert("NO GO! Say something productive you useless n00b");
+    return $('#error').text("Computer says NO!").slideDown();
   } else if ($tweetLength > 140) {
-    return alert("NOOOOOOO! Too much BS from you brah");
+    $('#error').text("Computer says NO!").slideDown();
+    $('textarea').val('');
+    return;
   }
 
-  $.ajax( {
+  $.ajax({
     url: `/tweets`,
+    method: 'POST',
     data: $('#submit-tweet').serialize(),
     dataType: "json",
-    method: 'POST',
     success: (data) => {
       console.log("success",data);
-      const $data = createTweetElement(data);
-      $('.tweets-container').prepend($data);
+      $('textarea').val('');
+      $('.counter').text('140');
+      loadtweets();
     },
     error: (err) => {
       console.log("errr",err);
@@ -77,7 +93,7 @@ const loadtweets = function() {
     success: (function(data) {
       console.log("Success", data);
       renderTweets(data);
-      $('.tweets-container').prepend(data);
+      // $('.tweets-container').prepend(data);
     })
   });
 }
