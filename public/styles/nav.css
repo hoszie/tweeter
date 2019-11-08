@@ -6,7 +6,28 @@ nav {
   height: 120px;
   z-index: 1;
   width: 100%;
-  
+}
+
+#write-button-div {
+  float: right;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#nav-button {
+  margin-top: -20px;
+  height: 40px;
+  border: 0;
+  padding: 0;
+}
+
+#nav-button img {
+  width: 40px;
+  height: 40px;
+  background-color: #4056A1;
+
 }
 
 nav span {
@@ -14,9 +35,4 @@ nav span {
   float: left;
   margin: 1.5em;
   font-family: 'Bungee', sans-serif;
-}
-
-nav p {
-  float: right;
-  margin: 1.5em;
 }
