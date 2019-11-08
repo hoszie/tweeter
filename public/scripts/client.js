@@ -3,6 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+
+$('.new-tweet').hide();
+$('#nav-button').click(function() {
+  $('.new-tweet').slideToggle();
+})
+
+
 const createTweetElement = function(tweetObj)
 {
   const $img = $('<img>').attr('src', tweetObj.user.avatars);
