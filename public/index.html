@@ -26,7 +26,8 @@
     
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
+    
     <!-- App JS -->
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
   </head>
@@ -45,7 +46,7 @@
     <!-- Page-specific (main) content here -->
     <header>
       <div>
-        <img src="/images/profile-hex.png"></img>
+        <img id="profile" src="/images/profile-hex.png"></img>
       </div>
       <!-- <br> -->
       <div>
@@ -54,6 +55,7 @@
     </header>
     <main class="container">
       <section class="new-tweet">
+        <div id="error"></div>
         <h2>Compose tweet</h2>
         <form method="POST" action="/tweets" id="submit-tweet">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
