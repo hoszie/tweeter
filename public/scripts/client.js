@@ -3,18 +3,21 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const moment = require('moment');
+
+///  hides the new tweet on page load ////
 $('.new-tweet').hide();
 $('#nav-button').click(function() {
   $('.new-tweet').slideToggle();
 });
 
+//////  clears the error message/ textarea and resets counter  /////// 
 $('#submit-tweet textarea').focus(function() {
   $('#error').hide();
   $('.new-tweet h2').show();
   $('textarea').val('');
 });
 
+////////     creates the new tweet   /////////
 const createTweetElement = function(tweetObj) {
   const $img = $('<img>').attr('src', tweetObj.user.avatars);
   const $name = $('<span>').addClass('name').text(tweetObj.user.name);
@@ -41,6 +44,7 @@ const createTweetElement = function(tweetObj) {
   return $article;
 };
 
+///////   presents tweets in the correct order, starting from most recent   /////
 const renderTweets = function(data) {
   $('.tweets-container').empty();
   data.sort((a, b) => {
