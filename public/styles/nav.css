@@ -10,7 +10,7 @@ nav {
 
 #write-button-div {
   float: right;
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,7 +27,6 @@ nav {
   width: 40px;
   height: 40px;
   background-color: #4056A1;
-
 }
 
 nav span {
@@ -35,4 +34,16 @@ nav span {
   float: left;
   margin: 1.5em;
   font-family: 'Bungee', sans-serif;
+}
+
+@media(max-width: 900px) {
+  nav {
+    background-color: #d9ae00;
+    background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+  }
+
+  #nav-button img {
+    background-color: #d9ae00;
+    background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+  }
 }
